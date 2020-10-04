@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body{ margin:0; padding:0; background:#000;}
+            window {position:relative; width:1024px; height:684px; display:block; margin:0 auto; background:url(./cmn_bg_00.png); background-size:100%; overflow:hidden;}
+            top {width:1024px; height:80px;  background-position:0px 0px; display:block; background:url(./1009_friend_list.png); background-size:1024px 768px; font-family:'나눔고딕'; font-size:36px; font-weight:600; color:#FFF; padding:16px 24px; box-sizing:border-box; text-shadow:0px 2px 0px #000; }
+            right {display:block; position:absolute; right:0px; padding-right:16px; padding-top:144px; top:0px;}
+            right>button {background:url(./1000_common_button_.png); height:122px; width:122px; background-position:-3px -258px; border:0px; position:relative; margin-bottom:22px; display:block; border-radius:50%; overflow:hidden;}
+            right>button.commentdelete::before {content:""; height:122px; width:122px; background:url(./images/ma_commentdelete_btna.png); display:block; position:absolute; left:0px; top:0px;}
+            right>button.good::before {content:""; height:122px; width:122px; background:url(./1000_common_button_.png); background-position:508px 2px; display:block; position:absolute; left:0px; top:0px;}
+            right>button.back {background-position:-3px -2px;}
+            right>button.back::before {content:""; height:122px; width:122px; background:url(./1000_common_button_.png); background-position:-260px 2px; display:block; position:absolute; left:0px; top:0px;}
+            right>button.gacha {background-position:-387px -258px;}
+            right>button.gacha::before {content:""; height:122px; width:122px; background:url(./1000_common_button_.png); background-position:-3px -384px; display:block; position:absolute; left:0px; top:0px;}
+
+            likearea {display:block; position:absolute; left:48px; top:72px; overflow:hidden; bottom:0px; width:742px;}
+            likeitem {display:block; width:742px; height:230px; background:url(./majoayo.png) no-repeat; background-position:0px -240px; margin-bottom:16px;}
+            likeitem[data-recent] {background-position:0px 0px;}
+        </style>
+    </head>
+    <body>
+        <window style="transform-origin:50% 0%;">
+            <top>좋아요! 이력</top>
+            <likearea>
+                <likeitem data-recent>
+
+                </likeitem>
+                <likeitem>
+
+                </likeitem>
+                <likeitem>
+
+                </likeitem>
+            </likearea>
+            <right>
+                <button class="commentdelete"></button>
+                <button class="good"></button>
+                <button class="back"></button>
+                <button class="gacha"></button>
+            </right>
+        </window>
+    </body>
+    <script>
+
+        window.addEventListener("click", () =>
+        { 
+            let ad = new Audio('./bgm_common1.mp3');
+            ad.volume = 0.5;
+            ad.play();
+        });
+
+        document.querySelectorAll("button").forEach(e => { addse(e); });
+        document.querySelectorAll("likeitem").forEach(e => { addse(e); });
+
+        function addse(e)
+        {
+            e.addEventListener("click", () =>
+            {
+                let ad = new Audio('./se_def_cancel_04_01.ogg');
+                ad.play();
+            });
+        }
+    </script>
+</html>
