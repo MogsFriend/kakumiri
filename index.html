@@ -44,9 +44,10 @@
     <script>
         const ad = new Audio('./bgm_common1.mp3');
         ad.volume = 0.5;
+        ad.loop = true;
         window.addEventListener("click", () =>
         {
-            if (ad.ended) ad.play();
+            if (ad.currentTime == 0) ad.play();
         });
 
         document.querySelectorAll("button").forEach(e => { addse(e); });
