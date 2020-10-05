@@ -15,22 +15,27 @@
             right>button.gacha::before {content:""; height:122px; width:122px; background:url(./commonbtn.png); background-position:-3px -384px; display:block; position:absolute; left:0px; top:0px;}
 
             likearea {display:block; position:absolute; left:48px; top:72px; overflow:hidden; bottom:0px; width:742px;}
-            likeitem {display:block; width:742px; height:230px; background:url(./majoayo.png) no-repeat; background-position:0px -240px; margin-bottom:16px;}
+            likeitem {display:block; position:relative; width:742px; height:230px; background:url(./majoayo.png) no-repeat; background-position:0px -240px; margin-bottom:16px; font-family:'Courier New', "나눔고딕"; font-weight:600; color:#FFF; text-shadow:0px 2px 0px #000; font-size:30px; padding-left:174px; padding-top:90px; box-sizing:border-box;}
             likeitem[data-recent] {background-position:0px 0px;}
+            likeitem::before {content:""; position:absolute; left:24px; top:64px; background-image:var(--icon); background-size: 100% 100%; width:108px; height:108px;}
+            likeitem>.nickname {position:absolute; left:194px; top:10px;}
         </style>
     </head>
     <body>
         <window style="transform-origin:50% 0%;">
             <top>좋아요! 이력</top>
             <likearea>
-                <likeitem data-recent>
-
+                <likeitem style="--icon:url(./face_885.png);" data-recent>
+                    <span class="nickname">지원형 색동</span>
+                    숟가락좀 얹게 해달라구요~
                 </likeitem>
-                <likeitem>
-
+                <likeitem style="--icon:url(./face_2509.png);">
+                    <span class="nickname">약산형 엘</span>
+                    약한 자의 말은 듣지 않는다.
                 </likeitem>
-                <likeitem>
-
+                <likeitem style="--icon:url(./face_39.png);">
+                    <span class="nickname">SiSiLaLa Project</span>
+                    시끄럽군...
                 </likeitem>
             </likearea>
             <right>
@@ -42,12 +47,19 @@
         </window>
     </body>
     <script>
+        const aasa = new Audio('./ikunoda_asa.ogg');
+        aasa.volume = 0.75;
+        
         const ad = new Audio('./bgm_common1.mp3');
-        ad.volume = 0.5;
+        ad.volume = 0.75;
         ad.loop = true;
         window.addEventListener("click", () =>
         {
-            if (ad.currentTime == 0) ad.play();
+            if (ad.currentTime == 0)
+            {
+                ad.play();
+                aasa.play();
+            }
         });
 
         document.querySelectorAll("button").forEach(e => { addse(e); });
@@ -57,10 +69,18 @@
         {
             e.addEventListener("click", () =>
             {
-                let ad = new Audio('./se_def_cancel_04_01.ogg');
+                let ad = null;
+                if (e.classList.contains("back"))
+                {
+                    ad = new Audio('./cancel2.ogg');
+                }
+                else
+                {
+                    ad = new Audio('./cancel1.ogg');
+                }
                 ad.play();
             });
         }
     </script>
-    <!-- image resources copyright by SQUARE ENIX * ACTOZ SOFT 2014 -->
+    <!-- image/SE resources copyright by SQUARE ENIX * ACTOZ SOFT 2014 -->
 </html>
